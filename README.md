@@ -4,22 +4,7 @@ This Terraform module creates a Google Kubernetes Engine (GKE) cluster along wit
 
 ## Usage
 
-```hcl
-module "kubernetes" {
-  source = "github.com/NovaSoftworks/tfr-gc-kubernetes?ref=v1.0.0"
-
-  project_id            = "your-project-id"
-  region                = "europe-west1"
-  cluster_name          = "my-cluster"
-  node_type             = "e2-medium"
-  node_count            = 3
-  node_tags             = ["allow-iap-ssh-ingress"]
-  network_id            = "vpc-id"
-  subnet_id             = "subnet-id"
-  pods_range_name       = "pod-range"
-  services_range_name   = "services-range"
-}
-```
+Create a module block with the following source: `github.com/NovaSoftworks/tfr-gc-kubernetes?ref=v1.0.1`
 
 ## Variables
 

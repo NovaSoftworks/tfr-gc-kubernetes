@@ -17,6 +17,8 @@ resource "google_container_cluster" "gke" {
     cluster_secondary_range_name  = var.pods_range_name
     services_secondary_range_name = var.services_range_name
   }
+
+  deletion_protection = false # TODO: remove after POC
 }
 
 resource "google_container_node_pool" "node_pool" {
