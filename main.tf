@@ -10,6 +10,10 @@ resource "google_container_cluster" "gke" {
     channel = "STABLE"
   }
 
+  private_cluster_config {
+    enable_private_nodes = true
+  }
+
   remove_default_node_pool = true
   initial_node_count       = 1
 

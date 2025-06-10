@@ -4,7 +4,7 @@ This Terraform module creates a Google Kubernetes Engine (GKE) cluster along wit
 
 ## Usage
 
-Create a module block with the following source: `github.com/NovaSoftworks/tfr-gc-kubernetes?ref=v1.0.1`
+Create a module block with the following source: `github.com/NovaSoftworks/tfr-gc-kubernetes?ref=v1.0.2`
 
 ## Variables
 
