@@ -26,7 +26,7 @@ resource "google_container_cluster" "gke" {
 }
 
 resource "google_container_node_pool" "cluster_tools_node_pool" {
-  name       = "${var.cluster_name}-cluster-tools-pool"
+  name       = "${var.cluster_name}-ct-pool"
   cluster    = google_container_cluster.gke.name
   location   = var.location
   project    = var.project_id
