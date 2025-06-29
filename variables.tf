@@ -13,6 +13,30 @@ variable "cluster_name" {
   type        = string
 }
 
+variable "cluster_tools_node_type" {
+  description = "The machine type for the node pool."
+  type        = string
+}
+
+variable "cluster_tools_node_disks_size_gb" {
+  description = "The size of the node disks in GB."
+  type        = number
+  default     = 10
+}
+
+variable "cluster_tools_node_count" {
+  description = "The number of nodes in the node pool."
+  type        = number
+  default     = 1
+}
+
+variable "cluster_tools_node_tags" {
+  description = "A list of tags to apply to the nodes."
+  type        = list(string)
+  default     = []
+}
+
+
 variable "node_type" {
   description = "The machine type for the node pool."
   type        = string

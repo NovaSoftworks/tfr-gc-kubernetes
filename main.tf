@@ -25,6 +25,31 @@ resource "google_container_cluster" "gke" {
   deletion_protection = false # TODO: remove after POC
 }
 
+resource "google_container_node_pool" "cluster_tools_node_pool" {
+  name       = "${var.cluster_name}-cluster-tools-pool"
+  cluster    = google_container_cluster.gke.name
+  location   = var.location
+  project    = var.project_id
+
+  node_config {
+    machine_type = var.cluster_tools_node_type
+    tags = var.cluster_tools_node_tags
+    disk_size_gb = var.cluster_tools_node_disks_size_gb
+
+    labels = {
+      purpose = "cluster-tools"
+    }
+
+    taint {
+      key    = "purpose"
+      value  = "cluster-tools"
+      effect = "NO_SCHEDULE"
+    }
+  }
+
+  initial_node_count = var.cluster_tools_node_count
+}
+
 resource "google_container_node_pool" "node_pool" {
   name       = "${var.cluster_name}-pool"
   cluster    = google_container_cluster.gke.name
